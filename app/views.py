@@ -13,9 +13,9 @@ def form_client(request):
     if request.method == "POST":
         form = ClientForm(request.POST)
         if form.is_valid():
-            print('OK')
+            form.save()
             return HttpResponseRedirect('form_ok')
-    form = form_client()
+    form = ClientForm()
     return render(request, 'form_client.html', context={'form':form})
 
 def form_ok(request):
